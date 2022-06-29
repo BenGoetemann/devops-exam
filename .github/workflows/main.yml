@@ -2,10 +2,10 @@ name: Build and Deploy
 
 on:
   push:
-    branches: [ main ]
-    
+    branches: [ master ]
+
   # Run workflow manually
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: dist
-          path: dist 
+          path: dist
   deploy:
     name: Deploy
     needs: build

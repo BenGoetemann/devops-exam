@@ -1,34 +1,16 @@
 <template>
-  <div class="quote">
-    <div class="author">{{ author }}</div>
-    <div class="text">{{ text }}</div>
+  <div class="bg-white p-6 my-3 w-96 rounded-md shadow-lg">
+    <div class="w-full"><p class="text-sm mb-3">{{ author }}</p></div>
+    <div class="w-full"><p class="text-lg">{{ text }}</p></div>
+    <div class="w-full"><p class="text-sm mt-3">{{ date }}</p></div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["author", "text"],
+  props: ["author", "text", "date"],
 };
 </script>
 
 <style scoped>
-.quote {
-  padding: 15px;
-  width: 60vw;
-  height: 200px;
-  background-color: burlywood;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.author {
-  width: 100%;
-}
-
-.text  {
-  width: 100%;
-}
 </style>

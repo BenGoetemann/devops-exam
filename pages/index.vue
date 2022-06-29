@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center items-center mt-20">
     <div v-for="quote in quotes" :key="quote.id">
-      <QuoteContainer :author="quote.author" :text="quote.text" />
+      <QuoteContainer :author="quote.author" :text="quote.text" :date="quote.date" />
     </div>
   </div>
 </template>

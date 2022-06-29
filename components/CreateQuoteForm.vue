@@ -1,11 +1,17 @@
 <template>
-  <form class="flex flex-col justify-center items-center mt-20">
+  <form class="flex flex-col justify-center w-full items-center mt-20">
     <label for="name">Author Name</label>
-    <input v-model="author" class="input" type="text" name="name" id="name" />
+    <input
+      class="w-full rounded-md p-3 hover:shadow-lg mb-3"
+      v-model="author"
+      type="text"
+      name="name"
+      id="name"
+    />
     <label for="quote">Quote</label>
     <textarea
       v-model="quote"
-      class="input"
+      class="w-full rounded-md p-3 mb-10 hover:shadow-lg"
       name="quote"
       id="quote"
       cols="30"
@@ -28,6 +34,9 @@ export default {
       quote: "",
     };
   },
+  mounted() {
+    console.log(Date.now());
+  },
   methods: {
     async writeToFirestore() {
       let uuid = uuidv4();
@@ -36,6 +45,7 @@ export default {
         id: uuid,
         author: this.author,
         text: this.quote,
+        date: this.createDate()
       };
       try {
         await setDoc(ref, document);
@@ -48,15 +58,20 @@ export default {
         console.error(e);
       }
     },
+    createDate() {
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      const today = new Date();
+
+      return today.toLocaleDateString("en-US", options); // Saturday, September 17, 2016
+    },
   },
 };
 </script>
 
 <style scoped>
-.input {
-  border: 1px solid black;
-  margin: 10px;
-  width: 60vw;
-  border-radius: 5px;
-}
 </style>

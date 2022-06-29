@@ -16,7 +16,7 @@ export default {
   padding: 15px;
   width: 60vw;
   height: 200px;
-  background-color: aliceblue;
+  background-color: red;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;

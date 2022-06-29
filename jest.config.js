@@ -9,6 +9,7 @@ module.exports = {
     'vue',
     'json'
   ],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   transform: {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest'

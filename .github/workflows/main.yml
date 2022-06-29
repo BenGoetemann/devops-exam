@@ -8,8 +8,21 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+      - name: Install dependencies
+        run: npm ci
+      - name: Install dependencies
+        run: npm ci
+      - name: Test Project
+        run: npm run test
   build:
     name: Build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
